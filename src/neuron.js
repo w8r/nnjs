@@ -42,8 +42,9 @@ export default class Neuron extends Node {
    * @return {Edge}
    */
   detect(win) {
-    this.min += (this.eta() * (win.lowerGreyLevel() - this.min));
-    this.max += (this.eta() * (win.upperGreyLevel() - this.max));
+    const eta = this.eta();
+    this.min += (eta * (win.lowerGreyLevel - this.min));
+    this.max += (eta * (win.upperGreyLevel - this.max));
     Node.trainIteration++;
     return this.toMap(win);
   }

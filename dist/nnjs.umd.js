@@ -550,8 +550,9 @@ var Neuron = (function (Node$$1) {
    * @return {Edge}
    */
   Neuron.prototype.detect = function detect (win) {
-    this.min += (this.eta() * (win.lowerGreyLevel() - this.min));
-    this.max += (this.eta() * (win.upperGreyLevel() - this.max));
+    var eta = this.eta();
+    this.min += (eta * (win.lowerGreyLevel - this.min));
+    this.max += (eta * (win.upperGreyLevel - this.max));
     Node$$1.trainIteration++;
     return this.toMap(win);
   };
@@ -892,9 +893,9 @@ var Network$1 = (function (Node$$1) {
     var this$1 = this;
 
     var dist = 256;
-    var lgl = win.lowerGreyLevel();
-    var ugl = win.upperGreyLevel();
-    var agl = win.averageGreyLevel();
+    var lgl = win.lowerGreyLevel;
+    var ugl = win.upperGreyLevel;
+    var agl = win.averageGreyLevel;
     var tempDist, subnetwork, res, illuminationPrototype;
 
     for (var i = 0, len = this.subnetworks.length; i < len; i++) {

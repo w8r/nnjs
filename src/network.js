@@ -79,9 +79,9 @@ export default class Network extends Node {
    */
   subnetworkCompetition(win) {
     let dist = 256;
-    let lgl = win.lowerGreyLevel();
-    let ugl = win.upperGreyLevel();
-    let agl = win.averageGreyLevel();
+    let lgl = win.lowerGreyLevel;
+    let ugl = win.upperGreyLevel;
+    let agl = win.averageGreyLevel;
     let tempDist, subnetwork, res, illuminationPrototype;
 
     for (let i = 0, len = this.subnetworks.length; i < len; i++) {
